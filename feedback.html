@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VanLink Feedback</title>
+
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.feedback{
+max-width:900px;
+margin:auto;
+padding:110px 20px 80px;
+}
+
+.feedback-card{
+background:#fff;
+border-radius:18px;
+padding:28px;
+box-shadow:0 10px 35px rgba(0,0,0,.08);
+margin-top:25px;
+}
+
+.feedback-card h2{
+margin-bottom:10px;
+}
+
+.role-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.role{
+border:2px solid #ddd;
+padding:20px;
+border-radius:14px;
+cursor:pointer;
+text-align:center;
+transition:.25s;
+}
+
+.role:hover{
+transform:translateY(-4px);
+}
+
+.role.active{
+border-color:#2f80ed;
+background:#eef6ff;
+}
+
+.question{
+margin-top:28px;
+}
+
+.question h3{
+margin-bottom:10px;
+}
+
+.question label{
+display:block;
+margin:8px 0;
+cursor:pointer;
+}
+
+textarea{
+width:100%;
+height:140px;
+padding:12px;
+font-size:15px;
+border-radius:12px;
+border:1px solid #ccc;
+resize:none;
+}
+
+input[type=text]{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid #ccc;
+}
+
+.stars{
+font-size:34px;
+display:flex;
+gap:8px;
+margin-top:10px;
+}
+
+.star{
+cursor:pointer;
+opacity:.35;
+transition:.2s;
+}
+
+.star.active{
+opacity:1;
+}
+
+.submit-btn{
+margin-top:35px;
+width:100%;
+}
+
+.success{
+display:none;
+text-align:center;
+padding:30px;
+}
+
+.success h2{
+color:#18a558;
+}
+
+.loading{
+display:none;
+text-align:center;
+padding:25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="nav">
+<div class="wrap">
+
+<div class="brand">
+<img src="assets/icon.png">
+VanLink
+</div>
+
+<div class="navlinks">
+<a href="index.html">Home</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</div>
+
+</div>
+</nav>
+
+<section class="feedback">
+
+<div class="feedback-card" id="formCard">
+
+<h2>Help Us Improve VanLink ❤️</h2>
+
+<p>
+Your feedback helps us build a better experience for parents,
+drivers and schools.
+</p>
+
+<div class="question">
+
+<h3>Who are you?</h3>
+
+<div class="role-grid">
+
+<div class="role" data-role="Parent">
+<h2>👨‍👩‍👧</h2>
+Parent
+</div>
+
+<div class="role" data-role="Driver">
+<h2>🚐</h2>
+Driver
+</div>
+
+<div class="role" data-role="School">
+<h2>🏫</h2>
+School
+</div>
+
+</div>
+
+</div>
+
+<div class="question">
+
+<h3>Overall Rating</h3>
+
+<div class="stars">
+
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+
+</div>
+
+</div>
+
+<div id="dynamicQuestions"></div>
+
+<div class="question">
+
+<h3>Which feature do you use the most?</h3>
+
+<input
+id="favoriteFeature"
+type="text"
+placeholder="Example: Live Tracking">
+
+</div>
+
+<div class="question">
+
+<h3>Which feature would you like next?</h3>
+
+<input
+id="requestedFeature"
+type="text"
+placeholder="Your idea">
+
+</div>
+
+<div class="question">
+
+<h3>Tell us anything you'd like</h3>
+
+<textarea
+id="suggestions"
+placeholder="Write your thoughts..."></textarea>
+
+</div>
+
+<button
+class="btn btn-primary submit-btn"
+id="submitBtn">
+
+Submit Feedback
+
+</button>
+
+<div class="loading" id="loading">
+
+Sending Feedback...
+
+</div>
+
+</div>
+
+<div
+class="feedback-card success"
+id="success">
+
+<h2>🎉 Thank You!</h2>
+
+<p>
+
+Your feedback has been submitted successfully.
+
+</p>
+
+<a
+class="btn btn-primary"
+href="index.html">
+
+Back to Home
+
+</a>
+
+</div>
+
+</section>
+
+<script src="feedback.js"></script>
+
+</body>
+  </html>
