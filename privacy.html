@@ -14,6 +14,7 @@
     <div class="brand"><img src="assets/icon.png" alt="VanLink icon"> VanLink</div>
     <div class="navlinks">
       <a href="index.html">Home</a>
+      <a href="feedback.html">Feedback</a>
       <a href="privacy.html" class="active">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="#contact-foot">Contact</a>
@@ -32,7 +33,7 @@
 <div class="wrap legal-body">
 
   <div class="legal-notice">
-    <b>Note on this document:</b> VanLink's app did not previously have a dedicated Privacy Policy — only a Terms &amp; Conditions screen that briefly touched on data use. This page is a complete Privacy Policy written to cover what the app actually collects (including student and driver details), and it should replace any placeholder text still in the app itself.
+    <b>Note on this document:</b> VanLink's app did not previously have a dedicated Privacy Policy — only a Terms &amp; Conditions screen that briefly touched on data use. This page is a complete Privacy Policy written to cover what the app actually collects (including student and driver details, and live location while a driver has sharing turned on), and it should replace any placeholder text still in the app itself.
   </div>
 
   <div class="toc">
@@ -63,10 +64,11 @@
       <li><b>Driver details:</b> driving license number, vehicle registration number, school name, and school emergency contact.</li>
       <li><b>Student details:</b> name, class/grade, and pickup/drop-off information, entered by a parent and confirmed by a driver.</li>
       <li><b>Messages:</b> chat messages sent between a linked driver and parent, including quick-reply messages.</li>
+      <li><b>Live driver location:</b> while a driver has location sharing turned on for a trip, VanLink records their GPS coordinates (latitude/longitude) so the linked parent can see the van's progress. Location updates roughly every 4 seconds while sharing is active, and stop the moment the driver turns sharing off.</li>
       <li><b>Linking data:</b> the driver code or QR code used to connect a parent account to a driver account.</li>
       <li><b>Device &amp; diagnostic data:</b> a push-notification token (to deliver chat and arrival alerts) and basic crash/error information.</li>
     </ul>
-    <p>VanLink does not currently collect continuous GPS location. Any arrival or "on the way" status is sent manually by the driver, not tracked automatically.</p>
+    <p>A driver's live location is visible only to the parent(s) linked to that driver's route — never to other drivers, other parents, or anyone outside that connection.</p>
   </div>
 
   <div class="legal-section" id="s3">
@@ -76,6 +78,8 @@
       <li><b>Camera / Photos:</b> used only when you choose to add or update a profile photo.</li>
       <li><b>Phone (Call):</b> used only when you tap a call button (driver, ambulance, police, or school) — VanLink does not place or monitor these calls itself.</li>
       <li><b>Notifications:</b> used to deliver chat messages and arrival alerts to your device.</li>
+      <li><b>Location (fine/coarse):</b> used by a driver's device only while they've turned on live location sharing for a trip, and by a parent's device when picking a pickup/drop point on the map. Location access continues in the background only for as long as a driver keeps sharing turned on, shown by a persistent notification.</li>
+      <li><b>Display over other apps:</b> powers an optional floating navigation overlay for drivers, so route directions stay visible over other apps.</li>
     </ul>
     <p>You can review or withdraw any of these permissions at any time from your device's app settings; doing so may disable the related feature.</p>
   </div>
@@ -85,6 +89,7 @@
     <ul>
       <li>To link the correct driver and parent accounts together.</li>
       <li>To display driver, vehicle, and student details on the relevant cards inside the app.</li>
+      <li>To show a parent their linked driver's live location on a map while sharing is turned on.</li>
       <li>To enable direct chat between a linked driver and parent.</li>
       <li>To send chat and arrival-related push notifications.</li>
       <li>To cache your student list and recent messages on your device for offline access.</li>
@@ -120,7 +125,7 @@
 
   <div class="legal-section" id="s8">
     <h2><span class="num">08</span> Data retention</h2>
-    <p>We keep account, student, and chat data for as long as your account remains active and linked, so the app continues to function correctly. If you delete your account, we delete or anonymize your personal data within a reasonable period, except where limited information must be kept to meet a legal obligation or to resolve a reported safety or misuse issue.</p>
+    <p>We keep account, student, chat, and location-sharing data for as long as your account remains active and linked, so the app continues to function correctly. Live location points are only ever stored for the current trip and are overwritten on the next update — VanLink does not build a historical location trail. If you delete your account, we delete or anonymize your personal data within a reasonable period, except where limited information must be kept to meet a legal obligation or to resolve a reported safety or misuse issue.</p>
   </div>
 
   <div class="legal-section" id="s9">
@@ -157,6 +162,7 @@
     <div class="brand" style="font-size:15px;"><img src="assets/icon.png" style="width:24px;height:24px;"> VanLink</div>
     <div class="flinks">
       <a href="index.html">Home</a>
+      <a href="feedback.html">Feedback</a>
       <a href="terms.html">Terms &amp; Conditions</a>
       <a href="mailto:van.link9090@gmail.com">Contact</a>
     </div>
@@ -165,4 +171,5 @@
 </footer>
 
 </body>
-</html>
+    </html>
+    
