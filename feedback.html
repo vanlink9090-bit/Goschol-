@@ -3,276 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VanLink Feedback</title>
-
+<title>Feedback — VanLink</title>
+<meta name="description" content="Share your feedback on VanLink as a driver or a parent.">
 <link rel="icon" href="assets/icon.png">
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-.feedback{
-max-width:900px;
-margin:auto;
-padding:110px 20px 80px;
-}
-
-.feedback-card{
-background:#fff;
-border-radius:18px;
-padding:28px;
-box-shadow:0 10px 35px rgba(0,0,0,.08);
-margin-top:25px;
-}
-
-.feedback-card h2{
-margin-bottom:10px;
-}
-
-.role-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-margin-top:20px;
-}
-
-.role{
-border:2px solid #ddd;
-padding:20px;
-border-radius:14px;
-cursor:pointer;
-text-align:center;
-transition:.25s;
-}
-
-.role:hover{
-transform:translateY(-4px);
-}
-
-.role.active{
-border-color:#2f80ed;
-background:#eef6ff;
-}
-
-.question{
-margin-top:28px;
-}
-
-.question h3{
-margin-bottom:10px;
-}
-
-.question label{
-display:block;
-margin:8px 0;
-cursor:pointer;
-}
-
-textarea{
-width:100%;
-height:140px;
-padding:12px;
-font-size:15px;
-border-radius:12px;
-border:1px solid #ccc;
-resize:none;
-}
-
-input[type=text]{
-width:100%;
-padding:12px;
-border-radius:12px;
-border:1px solid #ccc;
-}
-
-.stars{
-font-size:34px;
-display:flex;
-gap:8px;
-margin-top:10px;
-}
-
-.star{
-cursor:pointer;
-opacity:.35;
-transition:.2s;
-}
-
-.star.active{
-opacity:1;
-}
-
-.submit-btn{
-margin-top:35px;
-width:100%;
-}
-
-.success{
-display:none;
-text-align:center;
-padding:30px;
-}
-
-.success h2{
-color:#18a558;
-}
-
-.loading{
-display:none;
-text-align:center;
-padding:25px;
-}
-
-</style>
-
 </head>
-
 <body>
 
 <nav class="nav">
-<div class="wrap">
-
-<div class="brand">
-<img src="assets/icon.png">
-VanLink
-</div>
-
-<div class="navlinks">
-<a href="index.html">Home</a>
-<a href="privacy.html">Privacy</a>
-<a href="terms.html">Terms</a>
-</div>
-
-</div>
+  <div class="wrap">
+    <div class="brand"><img src="assets/icon.png" alt="VanLink icon"> VanLink</div>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="feedback.html" class="active">Feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
 </nav>
 
-<section class="feedback">
+<header class="legal-hero">
+  <div class="wrap">
+    <span class="eyebrow">We're listening</span>
+    <h1>Tell us how VanLink is working for you</h1>
+    <p class="updated">Takes about a minute — answer as a driver or as a parent.</p>
+  </div>
+</header>
 
-<div class="feedback-card" id="formCard">
+<section style="padding-top:10px;">
+  <div class="wrap">
 
-<h2>Help Us Improve VanLink ❤️</h2>
+    <form id="fbForm" class="fb-card">
 
-<p>
-Your feedback helps us build a better experience for parents,
-drivers and schools.
-</p>
+      <div class="fb-group">
+        <label class="fb-q">I'm using VanLink as a <span class="fb-req">*</span></label>
+        <div class="fb-pills" data-name="role">
+          <label class="fb-pill"><input type="radio" name="role" value="Driver" required> Driver</label>
+          <label class="fb-pill"><input type="radio" name="role" value="Parent"> Parent</label>
+        </div>
+      </div>
 
-<div class="question">
+      <div class="fb-group">
+        <label class="fb-q">Overall, how would you rate VanLink? <span class="fb-req">*</span></label>
+        <div class="fb-stars" id="starRow">
+          <label><input type="radio" name="rating" value="1" required>★</label>
+          <label><input type="radio" name="rating" value="2">★</label>
+          <label><input type="radio" name="rating" value="3">★</label>
+          <label><input type="radio" name="rating" value="4">★</label>
+          <label><input type="radio" name="rating" value="5">★</label>
+        </div>
+      </div>
 
-<h3>Who are you?</h3>
+      <div class="fb-group">
+        <label class="fb-q">How easy is VanLink to use?</label>
+        <div class="fb-pills" data-name="easeOfUse">
+          <label class="fb-pill"><input type="radio" name="easeOfUse" value="Very easy"> Very easy</label>
+          <label class="fb-pill"><input type="radio" name="easeOfUse" value="Easy"> Easy</label>
+          <label class="fb-pill"><input type="radio" name="easeOfUse" value="Okay"> Okay</label>
+          <label class="fb-pill"><input type="radio" name="easeOfUse" value="Difficult"> Difficult</label>
+          <label class="fb-pill"><input type="radio" name="easeOfUse" value="Very difficult"> Very difficult</label>
+        </div>
+      </div>
 
-<div class="role-grid">
+      <div class="fb-group">
+        <label class="fb-q">How accurate is live location tracking?</label>
+        <div class="fb-pills" data-name="trackingAccuracy">
+          <label class="fb-pill"><input type="radio" name="trackingAccuracy" value="Very accurate"> Very accurate</label>
+          <label class="fb-pill"><input type="radio" name="trackingAccuracy" value="Mostly accurate"> Mostly accurate</label>
+          <label class="fb-pill"><input type="radio" name="trackingAccuracy" value="Often inaccurate"> Often inaccurate</label>
+          <label class="fb-pill"><input type="radio" name="trackingAccuracy" value="Haven't used it"> Haven't used it</label>
+        </div>
+      </div>
 
-<div class="role" data-role="Parent">
-<h2>👨‍👩‍👧</h2>
-Parent
-</div>
+      <div class="fb-group">
+        <label class="fb-q">What's your favorite feature?</label>
+        <div class="fb-pills" data-name="favoriteFeature">
+          <label class="fb-pill"><input type="radio" name="favoriteFeature" value="Live location sharing"> Live location</label>
+          <label class="fb-pill"><input type="radio" name="favoriteFeature" value="Chat"> Chat</label>
+          <label class="fb-pill"><input type="radio" name="favoriteFeature" value="Driver-parent linking"> Driver linking</label>
+          <label class="fb-pill"><input type="radio" name="favoriteFeature" value="Emergency calling"> Emergency calling</label>
+          <label class="fb-pill"><input type="radio" name="favoriteFeature" value="Offline access"> Offline access</label>
+        </div>
+      </div>
 
-<div class="role" data-role="Driver">
-<h2>🚐</h2>
-Driver
-</div>
+      <div class="fb-group">
+        <label class="fb-q" for="requestedFeature">Is there a feature you wish VanLink had?</label>
+        <input class="fb-input" type="text" id="requestedFeature" name="requestedFeature" placeholder="e.g. multi-stop ETA, attendance history...">
+      </div>
 
-<div class="role" data-role="School">
-<h2>🏫</h2>
-School
-</div>
+      <div class="fb-group">
+        <label class="fb-q" for="suggestions">Anything else you'd like to tell us?</label>
+        <textarea class="fb-textarea" id="suggestions" name="suggestions" placeholder="Write your thoughts here — bugs, ideas, or anything on your mind."></textarea>
+      </div>
 
-</div>
+      <button class="fb-submit" type="submit" id="fbSubmit">Submit feedback</button>
+      <p class="fb-status" id="fbStatus"></p>
 
-</div>
+      <div class="fb-success" id="fbSuccess">
+        <h3>🎉 Thanks — feedback received!</h3>
+        <p>We read every response. If you'd like a reply, email us at <a href="mailto:van.link9090@gmail.com" style="color:var(--blue); text-decoration:underline;">van.link9090@gmail.com</a>.</p>
+      </div>
 
-<div class="question">
+    </form>
 
-<h3>Overall Rating</h3>
-
-<div class="stars">
-
-<span class="star">⭐</span>
-<span class="star">⭐</span>
-<span class="star">⭐</span>
-<span class="star">⭐</span>
-<span class="star">⭐</span>
-
-</div>
-
-</div>
-
-<div id="dynamicQuestions"></div>
-
-<div class="question">
-
-<h3>Which feature do you use the most?</h3>
-
-<input
-id="favoriteFeature"
-type="text"
-placeholder="Example: Live Tracking">
-
-</div>
-
-<div class="question">
-
-<h3>Which feature would you like next?</h3>
-
-<input
-id="requestedFeature"
-type="text"
-placeholder="Your idea">
-
-</div>
-
-<div class="question">
-
-<h3>Tell us anything you'd like</h3>
-
-<textarea
-id="suggestions"
-placeholder="Write your thoughts..."></textarea>
-
-</div>
-
-<button
-class="btn btn-primary submit-btn"
-id="submitBtn">
-
-Submit Feedback
-
-</button>
-
-<div class="loading" id="loading">
-
-Sending Feedback...
-
-</div>
-
-</div>
-
-<div
-class="feedback-card success"
-id="success">
-
-<h2>🎉 Thank You!</h2>
-
-<p>
-
-Your feedback has been submitted successfully.
-
-</p>
-
-<a
-class="btn btn-primary"
-href="index.html">
-
-Back to Home
-
-</a>
-
-</div>
-
+  </div>
 </section>
 
-<script src="feedback.js"></script>
+<footer id="contact-foot">
+  <div class="wrap">
+    <div class="brand" style="font-size:15px;"><img src="assets/icon.png" style="width:24px;height:24px;"> VanLink</div>
+    <div class="flinks">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="mailto:van.link9090@gmail.com">Contact</a>
+    </div>
+    <span class="fine">© 2026 VanLink. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbwgDax8CdDtT5qCczemQoYs4FuFx56GAREdwRkxgGtj8qOLuahLqoxMHxrxGR-nsBZo/exec";
+
+// Toggle pill styling for radio groups
+document.querySelectorAll('.fb-pills').forEach(group => {
+  group.addEventListener('click', () => {
+    group.querySelectorAll('.fb-pill').forEach(pill => {
+      pill.classList.toggle('checked', pill.querySelector('input').checked);
+    });
+  });
+});
+
+// Star rating fill
+const starLabels = document.querySelectorAll('#starRow label');
+starLabels.forEach((label, idx) => {
+  label.addEventListener('click', () => {
+    starLabels.forEach((l, i) => l.classList.toggle('active', i <= idx));
+  });
+});
+
+const form = document.getElementById('fbForm');
+const statusEl = document.getElementById('fbStatus');
+const submitBtn = document.getElementById('fbSubmit');
+const successEl = document.getElementById('fbSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const fd = new FormData(form);
+  const payload = {
+    role: fd.get('role') || '',
+    rating: fd.get('rating') || '',
+    easeOfUse: fd.get('easeOfUse') || '',
+    trackingAccuracy: fd.get('trackingAccuracy') || '',
+    favoriteFeature: fd.get('favoriteFeature') || '',
+    requestedFeature: fd.get('requestedFeature') || '',
+    suggestions: fd.get('suggestions') || '',
+    websiteVersion: '1.0',
+    answers: {
+      role: fd.get('role') || '',
+      rating: fd.get('rating') || '',
+      easeOfUse: fd.get('easeOfUse') || '',
+      trackingAccuracy: fd.get('trackingAccuracy') || '',
+      favoriteFeature: fd.get('favoriteFeature') || ''
+    }
+  };
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  statusEl.textContent = '';
+  statusEl.className = 'fb-status';
+
+  try {
+    // text/plain avoids a CORS preflight; Apps Script still reads the raw JSON body fine.
+    await fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+  } catch (err) {
+    statusEl.textContent = "Couldn't send feedback — please check your connection and try again.";
+    statusEl.className = 'fb-status err';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit feedback';
+  }
+});
+</script>
 
 </body>
-  </html>
+</html>
