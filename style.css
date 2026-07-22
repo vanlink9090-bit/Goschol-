@@ -389,4 +389,5 @@ footer .flinks a:hover{color:var(--blue);}
   .roles{grid-template-columns:1fr;}
   .navlinks{gap:16px; font-size:13px;}
   .route-rail{display:none;}
-}
+             }
+           
