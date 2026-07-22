@@ -16,9 +16,12 @@
     <div class="navlinks">
       <a href="#features">Features</a>
       <a href="#preview">Preview</a>
-      <a href="#contact">Contact</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#download">Download</a>
+      <a href="feedback.html">Feedback</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
+      <a href="refund.html">Refunds</a>
     </div>
   </div>
 </nav>
@@ -29,8 +32,11 @@
     <h1>Know your child's ride, from the front gate to the school gate.</h1>
     <p class="lede">Goschol connects school van drivers and parents in one simple app — driver details, direct chat, and one-tap emergency calling, without the group-chat chaos.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Get Goschol</a>
+      <a class="btn btn-primary" href="#download">Get Goschol <span class="app-version">v1.0.0</span></a>
       <a class="btn btn-ghost" href="#preview">See it in action</a>
+    </div>
+    <div style="margin-top:22px;">
+      <span class="version-pill">🚀 Latest release: <span class="app-version">v1.0.0</span></span>
     </div>
   </div>
 </header>
@@ -213,6 +219,71 @@
   </div>
 </section>
 
+<section id="pricing" style="position:relative;">
+  <div class="route-rail"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="stop"><span class="dot"></span><span class="label">Stop 04 — Subscription</span></div>
+      <h2>Simple subscription, paid directly via UPI</h2>
+      <p>Goschol unlocks full features with an active subscription — paid securely via UPI, verified in-app, no card details ever collected.</p>
+    </div>
+    <div class="grid3">
+      <div class="plan-card">
+        <div class="ico">💳</div>
+        <h3>Pay via UPI</h3>
+        <p>Scan the in-app QR code and pay via any UPI app for your subscription period.</p>
+      </div>
+      <div class="plan-card">
+        <div class="ico">✅</div>
+        <h3>Manual verification</h3>
+        <p>Submit your transaction ID or payment screenshot, and we verify and unlock your subscription shortly after.</p>
+      </div>
+      <div class="plan-card">
+        <div class="ico">↩️</div>
+        <h3>3-day refund window</h3>
+        <p>Genuine payment issues are eligible for a refund if reported within 3 days. See our <a href="refund.html">Refund Policy</a> for full details.</p>
+      </div>
+    </div>
+    <div class="legal-notice" style="margin-top:32px;">
+      <b>Note:</b> exact subscription pricing and plan tiers go here once finalized — this section currently reflects the UPI payment + manual verification flow already built into the app.
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Get the Goschol app</h2>
+      <p>Download the latest APK build directly — no Play Store required.</p>
+    </div>
+    <div class="download-card">
+      <div style="font-size:40px;">📦</div>
+      <h3 style="margin-top:12px;">Goschol Android APK</h3>
+      <p class="ver">Current version: <b class="app-version">v1.0.0</b></p>
+      <a class="btn btn-primary" id="apkLink" href="#" style="margin-top:20px;">⬇ Download APK</a>
+      <p class="download-note">The download link will go live once the first build is uploaded. Update <code>APK_URL</code> and <code>APP_VERSION</code> at the bottom of this page with every new release, and this whole page updates automatically.</p>
+    </div>
+  </div>
+</section>
+
+<section class="van-cta">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Enjoying the ride?</h2>
+      <p>Tell us how Goschol is working for your family or your route — takes about a minute.</p>
+    </div>
+    <div class="van-stage">
+      <div class="wind-line" style="top:34%; width:70px; animation-duration:1.1s; animation-delay:0s;"></div>
+      <div class="wind-line" style="top:48%; width:100px; animation-duration:1.4s; animation-delay:.3s;"></div>
+      <div class="wind-line" style="top:58%; width:55px; animation-duration:.9s; animation-delay:.6s;"></div>
+      <div class="wind-line" style="top:40%; width:85px; animation-duration:1.2s; animation-delay:.9s;"></div>
+      <div class="van-road"></div>
+      <div class="van-emoji">🚐</div>
+    </div>
+    <a class="btn btn-primary van-btn" href="feedback.html">💬 Share your feedback</a>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="contact-card">
@@ -229,11 +300,23 @@
     <div class="flinks">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="feedback.html">Feedback</a>
       <a href="mailto:van.link9090@gmail.com">Contact</a>
     </div>
     <span class="fine">© 2026 Goschol. All rights reserved.</span>
   </div>
 </footer>
+
+<script>
+  // 🔧 UPDATE THESE TWO LINES WITH EVERY NEW APK RELEASE — everything else updates automatically.
+  const APP_VERSION = "1.0.0";
+  const APK_URL = "downloads/goschol-v1.0.0.apk";
+
+  document.querySelectorAll('.app-version').forEach(el => { el.textContent = 'v' + APP_VERSION; });
+  const apkLink = document.getElementById('apkLink');
+  if (apkLink) { apkLink.href = APK_URL; apkLink.setAttribute('download', ''); }
+</script>
 
 </body>
 </html>
