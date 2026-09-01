@@ -413,4 +413,46 @@
     const curve = new THREE.CatmullRomCurve3(curvePts);
     const tubeGeo = new THREE.TubeGeometry(curve, 200, 0.02, 8, false);
     const tubeMat = new THREE.MeshBasicMaterial({ color:0x5B8CFF, transparent:true, opacity:0.75 });
-    const tube
+    const tube= new THREE.Mesh(tubeGeo, tubeMat);
+    scene.add(tube);
+
+    const tube2Mat = new THREE.MeshBasicMaterial({ color:0x9B7CFF, transparent:true, opacity:0.35 });
+    const tube2 = new THREE.Mesh(new THREE.TubeGeometry(curve, 200, 0.06, 8, false), tube2Mat);
+    scene.add(tube2);
+
+    // A traveling "van" marker: small glowing sphere moving along the route
+    const marker = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 16, 16),
+      new THREE.MeshBasicMaterial({ color:0xFFFFFF })
+    );
+    scene.add(marker);
+
+    let mouseX = 0, mouseY = 0;
+    window.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / window.innerWidth - 0.5);
+      mouseY = (e.clientY / window.innerHeight - 0.5);
+    });
+
+    const clock = new THREE.Clock();
+    function animate(){
+      const t = clock.getElapsedTime();
+      const progress = (t*0.045) % 1;
+      const pos = curve.getPointAt(progress);
+      marker.position.copy(pos);
+
+      points.rotation.y = t*0.01 + mouseX*0.15;
+      points.rotation.x = mouseY*0.08;
+
+      camera.position.x += (mouseX*1.4 - camera.position.x) * 0.03;
+      camera.position.y += (-mouseY*0.8 - camera.position.y) * 0.03;
+      camera.lookAt(0,0,0);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+</script>
+
+</body>
+</html>
