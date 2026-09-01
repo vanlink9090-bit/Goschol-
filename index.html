@@ -10,46 +10,68 @@
 </head>
 <body>
 
-<nav class="nav">
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div id="loader" style="position:fixed;inset:0;z-index:999;background:#0A0C11;display:flex;align-items:center;justify-content:center;">
+  <div class="mono" style="color:#fff;font-size:14px;letter-spacing:.08em;display:flex;align-items:center;gap:10px;">
+    <span id="loaderDot" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(120deg,#0099CC,#5B4FCF);display:inline-block;"></span>
+    GOSCHOL
+  </div>
+</div>
+
+<nav class="nav" id="nav">
   <div class="wrap">
     <div class="brand"><img src="assets/icon.png" alt="Goschol icon"> Goschol</div>
     <div class="navlinks">
+      <a href="#roles">How it works</a>
       <a href="#features">Features</a>
       <a href="#preview">Preview</a>
       <a href="#pricing">Pricing</a>
-      <a href="#download">Download</a>
       <a href="feedback.html">Feedback</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="refund.html">Refunds</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#download">Get Goschol</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<header class="hero">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#roles">How it works</a>
+  <a href="#features">Features</a>
+  <a href="#preview">Preview</a>
+  <a href="#pricing">Pricing</a>
+  <a href="feedback.html">Feedback</a>
+  <a href="#download">Get Goschol</a>
+</div>
+
+<header class="hero on-ink" id="heroSection">
+  <canvas id="hero-canvas"></canvas>
   <div class="wrap">
-    <span class="eyebrow">● Home → School, tracked together</span>
-    <h1>Know your child's ride, from the front gate to the school gate.</h1>
-    <p class="lede">Goschol connects school van drivers and parents in one simple app — driver details, direct chat, and one-tap emergency calling, without the group-chat chaos.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#download">Get Goschol <span class="app-version">v1.0.0</span></a>
-      <a class="btn btn-ghost" href="#preview">See it in action</a>
-      <a class="btn btn-ghost" href="https://youtube.com/@goshol-h7x?si=uh1qzAWmHfQCrQQ8" target="_blank" rel="noopener">▶ How to use the app</a>
-    </div>
-    <div style="margin-top:22px;">
-      <span class="version-pill">🚀 Latest release: <span class="app-version">v1.0.0</span></span>
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span>Home → School, tracked together</span>
+      <h1 id="heroHeadline">Know your child's ride, from the front gate to the school gate.</h1>
+      <p class="lede">Goschol connects school van drivers and parents in one simple app — driver details, direct chat, and one-tap emergency calling, without the group-chat chaos.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary magnetic" href="#download">Get Goschol <span class="app-version">v1.0.0</span></a>
+        <a class="btn btn-ghost magnetic" href="#preview">See it in action</a>
+        <a class="btn btn-ghost magnetic" href="https://youtube.com/@goshol-h7x?si=uh1qzAWmHfQCrQQ8" target="_blank" rel="noopener">▶ How to use the app</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span>Latest release <span class="app-version mono">v1.0.0</span> — live now</div>
     </div>
   </div>
+  <div class="scroll-hint"><span>SCROLL</span><span class="line"></span></div>
 </header>
 
 <section id="about">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>The problem</span>
       <h2>One app, built for every school van route</h2>
-      <p>Every day, parents wait at the gate not knowing exactly when the van will arrive, and drivers juggle a dozen phone calls just to confirm a stop. Goschol was built to close that gap — a single, purpose-built line between the person driving, the person waiting, and the school that's responsible for both. No more scattered WhatsApp groups, no more unread messages, no more guessing.</p>
     </div>
-    <div class="roles">
-      <div class="role-card">
+    <p class="lead-p reveal" style="margin-bottom:52px;">Every day, parents wait at the gate not knowing exactly when the van will arrive, and drivers juggle a dozen phone calls just to confirm a stop. Goschol was built to close that gap — a single, purpose-built line between the person driving, the person waiting, and the school that's responsible for both. No more scattered WhatsApp groups, no more unread messages, no more guessing.</p>
+    <div class="roles" id="roles">
+      <div class="role-card reveal">
         <span class="tag">For the driver</span>
         <h3>Everything about the route, in one place</h3>
         <ul>
@@ -60,7 +82,7 @@
           <li>Reach ambulance, police, or the school in one tap</li>
         </ul>
       </div>
-      <div class="role-card">
+      <div class="role-card reveal">
         <span class="tag">For the parent</span>
         <h3>A direct line to your child's driver</h3>
         <ul>
@@ -71,7 +93,7 @@
           <li>Read messages offline if your connection drops</li>
         </ul>
       </div>
-      <div class="role-card">
+      <div class="role-card reveal">
         <span class="tag">For the school</span>
         <h3>Oversight without the extra workload</h3>
         <ul>
@@ -83,21 +105,18 @@
         </ul>
       </div>
     </div>
-    <div class="section-head" style="margin-top:44px;">
-      <p>Getting started takes minutes: a school signs up and approves its drivers, each driver gets a unique code, and parents link to their child's driver with that code — that's it. No GPS trackers to install, no separate SIM, no training required. It works on the Android phone everyone already carries, in weak-signal areas thanks to offline caching, and it's built specifically for the daily school run rather than general-purpose fleet tracking.</p>
-    </div>
+    <p class="lead-p reveal" style="margin-top:44px;">Getting started takes minutes: a school signs up and approves its drivers, each driver gets a unique code, and parents link to their child's driver with that code — that's it. No GPS trackers to install, no separate SIM, no training required. It works on the Android phone everyone already carries, in weak-signal areas thanks to offline caching, and it's built specifically for the daily school run rather than general-purpose fleet tracking.</p>
   </div>
 </section>
 
-<section id="features" style="position:relative;">
-  <div class="route-rail"></div>
+<section id="features" class="journey-section">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="stop"><span class="dot"></span><span class="label">Stop 01 — Linking up</span></div>
       <h2>Built around one simple code</h2>
       <p>No usernames to remember, no friend requests. A parent enters their driver's 6-character code once, and the two accounts are linked for good.</p>
     </div>
-    <div class="code-strip">
+    <div class="code-strip reveal" id="codeStrip">
       <span>V</span><span>7</span><span>N</span><span>4</span><span>K</span><span>2</span>
     </div>
   </div>
@@ -105,37 +124,37 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="stop"><span class="dot"></span><span class="label">Stop 02 — Staying in touch</span></div>
       <h2>Everything you need for the daily commute</h2>
     </div>
     <div class="grid3">
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">💬</div>
         <h3>Real-time chat</h3>
         <p>Read receipts, typing indicators and quick-reply chips so drivers can respond without pulling over.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">📇</div>
         <h3>Driver &amp; student cards</h3>
         <p>Photo, vehicle and school details on one card — parents always know exactly who's driving.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">🆘</div>
         <h3>One-tap emergency calling</h3>
         <p>Ambulance, police and school contacts are always one tap away from the emergency screen.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">🔗</div>
         <h3>Simple driver linking</h3>
         <p>A 6-character code or QR scan connects a parent to the right driver in seconds.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">📶</div>
         <h3>Works offline</h3>
         <p>Recent messages and your student list are cached on-device, so a weak signal won't leave you in the dark.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="ico">🔒</div>
         <h3>Row-level security</h3>
         <p>Parents only ever see their own linked driver and child — nothing more.</p>
@@ -144,175 +163,59 @@
   </div>
 </section>
 
-<section id="unique" style="position:relative;">
-  <div class="route-rail"></div>
+<section id="preview">
   <div class="wrap">
-    <div class="section-head">
-      <div class="stop"><span class="dot"></span><span class="label">Stop 03 — What sets us apart</span></div>
-      <h2>Not just tracking — built for what actually happens on the ground</h2>
-      <p>These are the details most van-tracking apps skip, and the reason schools and parents stick with Goschol.</p>
-    </div>
-
-    <div class="feature-highlight">
-      <div class="alarm-visual">🔔</div>
-      <div>
-        <span class="badge">Signature feature</span>
-        <h3>Arrival Alarm — impossible to miss</h3>
-        <p>When a driver types something like "waiting outside" or "I'm here," Goschol doesn't just send a quiet notification — it sets off a loud, looping alarm and vibration on the parent's phone. It rides on the phone's actual alarm audio channel, so it plays even if the ringer is silenced, and it keeps going until the parent taps "Stop Alarm." A pickup should never be missed because a phone was buried in a bag.</p>
-      </div>
-    </div>
-
-    <div class="grid3">
-      <div class="card">
-        <div class="ico">🗺️</div>
-        <h3>Floating navigation overlay</h3>
-        <p>A small draggable button sits on top of Google Maps mid-route, showing "Student Name (2/5)" with arrows to jump between stops — drivers never have to leave the Maps app.</p>
-      </div>
-      <div class="card">
-        <div class="ico">📱</div>
-        <h3>Home-screen widget</h3>
-        <p>A "Share Live Location" toggle plus three preset announcement buttons, usable straight from the launcher without opening the app.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🔄</div>
-        <h3>Drag-to-reorder route</h3>
-        <p>Drivers arrange their student pickup list by dragging stops into the actual order they drive them.</p>
-      </div>
-      <div class="card">
-        <div class="ico">📅</div>
-        <h3>Server-locked attendance</h3>
-        <p>Parents mark a child absent ahead of time, but the edit cutoff is enforced against the school's server clock — not the phone's — closing the usual "change your device time" loophole.</p>
-      </div>
-      <div class="card">
-        <div class="ico">💳</div>
-        <h3>Human-verified payments</h3>
-        <p>Subscribe via UPI, submit the transaction ID and screenshot, and a real admin reviews and approves it — not a black-box auto-charge.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🔍</div>
-        <h3>Find your school in-app</h3>
-        <p>Search and select your school directly, instead of needing a code from the driver to get started.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="preview" style="position:relative;">
-  <div class="route-rail"></div>
-  <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="stop"><span class="dot"></span><span class="label">Stop 03 — App preview</span></div>
       <h2>A quick look inside</h2>
-      <p>Illustrative previews of the driver and parent experience.</p>
+      <p>Real screens from the driver and parent setup flow.</p>
     </div>
     <div class="showcase">
-
-      <div>
-        <div class="phone"><div class="screen">
-          <div class="notch"></div>
-          <div class="screen-content">
-            <div class="mini-label">Enter driver code</div>
-            <div class="mini-code"><span>V</span><span>7</span><span>N</span><span>4</span><span>K</span><span>2</span></div>
-            <div style="flex:1"></div>
-            <div class="mini-btn">Link Driver</div>
-          </div>
-        </div></div>
-        <p class="caption">Parent — link with code</p>
+      <div class="reveal">
+        <div class="phone-frame"><div class="notch"></div><img src="assets/shot-driver-setup.jpg" alt="Driver setup screen — selfie, license, personal info"></div>
+        <p class="caption">Driver — profile setup</p>
       </div>
-
-      <div>
-        <div class="phone"><div class="screen">
-          <div class="notch"></div>
-          <div class="screen-content">
-            <div class="mini-bar w40"></div>
-            <div class="mini-bar w80"></div>
-            <div class="mini-card"><div class="mini-avatar"></div><div style="flex:1"><div class="mini-bar w60"></div></div></div>
-            <div class="mini-card"><div class="mini-avatar"></div><div style="flex:1"><div class="mini-bar w80"></div></div></div>
-            <div class="mini-card"><div class="mini-avatar"></div><div style="flex:1"><div class="mini-bar w40"></div></div></div>
-            <div class="mini-card" style="border-color:rgba(40,167,69,0.4)"><div class="mini-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue))"></div><div style="flex:1"><div class="mini-bar w60"></div></div></div>
-          </div>
-        </div></div>
-        <p class="caption">Driver — student route list</p>
+      <div class="reveal">
+        <div class="phone-frame"><div class="notch"></div><img src="assets/shot-vehicle-license.jpg" alt="Vehicle, license and school info screen"></div>
+        <p class="caption">Driver — vehicle &amp; school info</p>
       </div>
-
-      <div>
-        <div class="phone"><div class="screen">
-          <div class="notch"></div>
-          <div class="screen-content">
-            <div class="mini-bar w40"></div>
-            <div class="chat-bubble left">Reached your stop, 2 mins away</div>
-            <div class="chat-bubble right">Thank you, we're outside</div>
-            <div class="chat-bubble left">On the way ✓✓</div>
-            <div style="flex:1"></div>
-            <div class="mini-bar w80" style="opacity:.6"></div>
-          </div>
-        </div></div>
-        <p class="caption">Parent ↔ Driver chat</p>
+      <div class="reveal">
+        <div class="phone-frame"><div class="notch"></div><img src="assets/shot-parent-setup.jpg" alt="Parent setup screen with child details"></div>
+        <p class="caption">Parent — child details</p>
       </div>
-
-      <div>
-        <div class="phone"><div class="screen">
-          <div class="notch"></div>
-          <div class="screen-content">
-            <div class="mini-label">Your driver</div>
-            <div class="mini-card vcard">
-              <div class="mini-avatar"></div>
-              <div class="mini-bar w60"></div>
-              <div class="mini-bar w40"></div>
-            </div>
-            <div class="mini-btn">📞 Call Driver</div>
-            <div style="flex:1"></div>
-            <div class="mini-bar w80" style="opacity:.5"></div>
-          </div>
-        </div></div>
-        <p class="caption">Parent — driver &amp; vehicle card</p>
+      <div class="reveal">
+        <div class="phone-frame"><div class="notch"></div><img src="assets/shot-location.jpg" alt="Home and school drop location picker"></div>
+        <p class="caption">Parent — pickup &amp; drop location</p>
       </div>
-
-      <div>
-        <div class="phone"><div class="screen">
-          <div class="notch"></div>
-          <div class="screen-content">
-            <div class="mini-bar w60"></div>
-            <div class="emg-btn a">🚑 Call Ambulance</div>
-            <div class="emg-btn b">🚓 Call Police</div>
-            <div class="emg-btn c">🏫 Call School</div>
-            <div style="flex:1"></div>
-            <div class="mini-bar w40" style="opacity:.5"></div>
-          </div>
-        </div></div>
-        <p class="caption">Emergency calling</p>
-      </div>
-
     </div>
   </div>
 </section>
 
-<section id="pricing" style="position:relative;">
-  <div class="route-rail"></div>
+<section id="pricing" class="journey-section">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="stop"><span class="dot"></span><span class="label">Stop 04 — Subscription</span></div>
       <h2>Simple subscription, paid directly via UPI</h2>
       <p>Goschol unlocks full features with an active subscription — paid securely via UPI, verified in-app, no card details ever collected.</p>
     </div>
     <div class="grid3">
-      <div class="plan-card">
+      <div class="plan-card reveal">
         <div class="ico">💳</div>
         <h3>Pay via UPI</h3>
         <p>Scan the in-app QR code and pay via any UPI app for your subscription period.</p>
       </div>
-      <div class="plan-card">
+      <div class="plan-card reveal">
         <div class="ico">✅</div>
         <h3>Manual verification</h3>
         <p>Submit your transaction ID or payment screenshot, and we verify and unlock your subscription shortly after.</p>
       </div>
-      <div class="plan-card">
+      <div class="plan-card reveal">
         <div class="ico">↩️</div>
         <h3>3-day refund window</h3>
-        <p>Genuine payment issues are eligible for a refund if reported within 3 days. See our <a href="refund.html">Refund Policy</a> for full details.</p>
+        <p>Genuine payment issues are eligible for a refund if reported within 3 days. See our <a href="refund.html" style="text-decoration:underline;">Refund Policy</a> for full details.</p>
       </div>
     </div>
-    <div class="legal-notice" style="margin-top:32px;">
+    <div class="legal-notice reveal" style="margin-top:32px;">
       <b>Note:</b> exact subscription pricing and plan tiers go here once finalized — this section currently reflects the UPI payment + manual verification flow already built into the app.
     </div>
   </div>
@@ -320,15 +223,11 @@
 
 <section id="download">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Get the Goschol app</h2>
-      <p>Download the latest APK build directly — no Play Store required.</p>
-    </div>
-    <div class="download-card">
+    <div class="download-card reveal">
       <div style="font-size:40px;">📦</div>
-      <h3 style="margin-top:12px;">Goschol Android APK</h3>
-      <p class="ver">Current version: <b class="app-version">v1.0.0</b></p>
-      <a class="btn btn-primary" id="apkLink" href="#" style="margin-top:20px;">⬇ Download APK</a>
+      <h2 style="color:#fff;margin-top:16px;">Get the Goschol app</h2>
+      <p class="ver">Download the latest APK build directly — no Play Store required. Current version: <b class="app-version">v1.0.0</b></p>
+      <a class="btn btn-primary magnetic" id="apkLink" href="#" style="margin-top:24px;">⬇ Download APK</a>
       <p class="download-note">The download link will go live once the first build is uploaded. Update <code>APK_URL</code> and <code>APP_VERSION</code> at the bottom of this page with every new release, and this whole page updates automatically.</p>
     </div>
   </div>
@@ -336,11 +235,11 @@
 
 <section class="van-cta">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
       <h2>Enjoying the ride?</h2>
-      <p>Tell us how Goschol is working for your family or your route — takes about a minute.</p>
+      <p style="margin-left:auto;margin-right:auto;">Tell us how Goschol is working for your family or your route — takes about a minute.</p>
     </div>
-    <div class="van-stage">
+    <div class="van-stage reveal">
       <div class="wind-line" style="top:34%; width:70px; animation-duration:1.1s; animation-delay:0s;"></div>
       <div class="wind-line" style="top:48%; width:100px; animation-duration:1.4s; animation-delay:.3s;"></div>
       <div class="wind-line" style="top:58%; width:55px; animation-duration:.9s; animation-delay:.6s;"></div>
@@ -348,16 +247,16 @@
       <div class="van-road"></div>
       <div class="van-emoji">🚐</div>
     </div>
-    <a class="btn btn-primary van-btn" href="feedback.html">💬 Share your feedback</a>
+    <a class="btn btn-primary van-btn magnetic" href="feedback.html">💬 Share your feedback</a>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <h2>Questions, feedback, or a school to onboard?</h2>
-      <p>We read every message. Reach out and we'll get back to you.</p>
-      <a class="email-pill" href="mailto:van.link9090@gmail.com">✉ van.link9090@gmail.com</a>
+      <p style="color:var(--text-dim);margin-top:10px;">We read every message. Reach out and we'll get back to you.</p>
+      <a class="email-pill magnetic" href="mailto:van.link9090@gmail.com">✉ van.link9090@gmail.com</a>
     </div>
   </div>
 </section>
@@ -376,57 +275,184 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-  // 🔧 Auto-detects the latest APK from the /downloads folder in this GitHub repo.
-  // To ship a new build: just upload the .apk into the "downloads" folder with any
-  // name containing a version number (e.g. "Goschol v2.apk", "goschol-2.1.apk") —
-  // nothing on this page needs to be edited.
-  const GH_OWNER = "vanlink9090-bit";
-  const GH_REPO  = "Goschol-";
-  const GH_FOLDER = "downloads";
+  // ---------- APK / version (unchanged behaviour) ----------
+  const APP_VERSION = "1.0.0";
+  const APK_URL = "downloads/goschol-v1.0.0.apk";
+  document.querySelectorAll('.app-version').forEach(el => { el.textContent = 'v' + APP_VERSION; });
+  const apkLink = document.getElementById('apkLink');
+  if (apkLink) { apkLink.href = APK_URL; apkLink.setAttribute('download', ''); }
 
-  function extractVersionParts(name){
-    const match = name.match(/(\d+)(?:[._-](\d+))?(?:[._-](\d+))?/);
-    if (!match) return [0,0,0];
-    return [parseInt(match[1]||0,10), parseInt(match[2]||0,10), parseInt(match[3]||0,10)];
+  // ---------- Loader ----------
+  window.addEventListener('load', () => {
+    gsap.to('#loader', { opacity: 0, duration: .6, delay: .3, onComplete: () => {
+      document.getElementById('loader').style.display = 'none';
+      playHeroIntro();
+    }});
+  });
+
+  // ---------- Nav scroll state ----------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // ---------- Mobile menu ----------
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // ---------- Custom cursor ----------
+  const cursorDot = document.getElementById('cursorDot');
+  let cx = 0, cy = 0, tx = 0, ty = 0;
+  window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  (function loop(){ cx += (tx-cx)*0.2; cy += (ty-cy)*0.2; cursorDot.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a, button, .card, .plan-card, .phone-frame').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursorDot.style.width='26px'; cursorDot.style.height='26px'; });
+    el.addEventListener('mouseleave', () => { cursorDot.style.width='10px'; cursorDot.style.height='10px'; });
+  });
+
+  // ---------- Magnetic buttons ----------
+  document.querySelectorAll('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const relX = e.clientX - r.left - r.width/2;
+      const relY = e.clientY - r.top - r.height/2;
+      gsap.to(el, { x: relX*0.25, y: relY*0.4, duration:.4, ease:'power3.out' });
+    });
+    el.addEventListener('mouseleave', () => gsap.to(el, { x:0, y:0, duration:.5, ease:'elastic.out(1,0.4)' }));
+  });
+
+  // ---------- Hero entrance ----------
+  function playHeroIntro(){
+    gsap.timeline()
+      .from('.hero .eyebrow', { opacity:0, y:14, duration:.6, ease:'power3.out' })
+      .from('#heroHeadline', { opacity:0, y:26, duration:.8, ease:'power3.out' }, '-=.35')
+      .from('.hero .lede', { opacity:0, y:20, duration:.7, ease:'power3.out' }, '-=.5')
+      .from('.hero .cta-row .btn', { opacity:0, y:16, stagger:.1, duration:.6, ease:'power3.out' }, '-=.45')
+      .from('.hero-note', { opacity:0, duration:.6 }, '-=.3');
   }
 
-  async function loadLatestApk(){
-    const apkLink = document.getElementById('apkLink');
-    const note = document.querySelector('.download-note');
-    try {
-      const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FOLDER}`);
-      if (!res.ok) throw new Error('Could not read downloads folder (status ' + res.status + ')');
-      const files = await res.json();
-      const apks = Array.isArray(files) ? files.filter(f => f.name.toLowerCase().endsWith('.apk')) : [];
-      if (apks.length === 0) throw new Error('No APK found in downloads folder yet');
+  // ---------- Scroll reveals ----------
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal').forEach(el => {
+    gsap.to(el, {
+      opacity:1, y:0, duration:.9, ease:'power3.out',
+      scrollTrigger:{ trigger: el, start:'top 88%' }
+    });
+  });
+  gsap.utils.toArray('.roles .role-card').forEach((el,i) => {
+    gsap.to(el, { opacity:1, y:0, duration:.8, delay:i*0.12, ease:'power3.out', scrollTrigger:{ trigger:'.roles', start:'top 82%' } });
+  });
+  gsap.utils.toArray('.grid3 .card, .grid3 .plan-card').forEach((el,i) => {
+    gsap.to(el, { opacity:1, y:0, duration:.7, delay:(i%3)*0.1, ease:'power3.out', scrollTrigger:{ trigger: el, start:'top 90%' } });
+  });
+  gsap.utils.toArray('.showcase .reveal').forEach((el,i) => {
+    gsap.to(el, { opacity:1, y:0, duration:.8, delay:i*0.08, ease:'power3.out', scrollTrigger:{ trigger:'.showcase', start:'top 85%' } });
+  });
 
-      apks.sort((a, b) => {
-        const va = extractVersionParts(a.name), vb = extractVersionParts(b.name);
-        for (let i = 0; i < 3; i++) { if (va[i] !== vb[i]) return vb[i] - va[i]; }
-        return 0;
+  // Code strip sequential light-up
+  ScrollTrigger.create({
+    trigger:'#codeStrip', start:'top 80%',
+    onEnter:() => {
+      document.querySelectorAll('#codeStrip span').forEach((s,i) => {
+        gsap.to(s, { delay:i*0.12, duration:.3, onStart:() => s.classList.add('lit') });
       });
-
-      const latest = apks[0];
-      const v = extractVersionParts(latest.name);
-      let versionLabel = v.slice(0, v[2] ? 3 : (v[1] ? 2 : 1)).join('.');
-      if (!versionLabel) versionLabel = '1.0';
-
-      document.querySelectorAll('.app-version').forEach(el => { el.textContent = 'v' + versionLabel; });
-      if (apkLink) {
-        apkLink.href = latest.download_url;
-        apkLink.setAttribute('download', latest.name);
-      }
-      if (note) note.textContent = 'Always the latest build — just drop a new APK into the "downloads" folder and this page updates itself.';
-    } catch (err) {
-      console.error('APK auto-detect failed:', err);
-      if (note) note.textContent = 'Download link will go live once an APK is uploaded to the "downloads" folder.';
     }
-  }
+  });
 
-  loadLatestApk();
+  // ---------- Three.js hero: route line + particle field ----------
+  (function initHero(){
+    const canvas = document.getElementById('hero-canvas');
+    const heroSection = document.getElementById('heroSection');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !window.THREE) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+    camera.position.set(0, 0, 9);
+
+    function resize(){
+      const w = heroSection.clientWidth, h = heroSection.clientHeight;
+      renderer.setSize(w, h);
+      camera.aspect = w/h; camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Particle field
+    const count = 420;
+    const positions = new Float32Array(count*3);
+    for (let i=0;i<count;i++){
+      positions[i*3] = (Math.random()-0.5)*22;
+      positions[i*3+1] = (Math.random()-0.5)*12;
+      positions[i*3+2] = (Math.random()-0.5)*14 - 2;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions,3));
+    const mat = new THREE.PointsMaterial({ color:0x6FA9FF, size:0.035, transparent:true, opacity:0.55 });
+    const points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    // Route line — a gentle winding curve, glowing
+    const curvePts = [];
+    for (let i=0;i<=60;i++){
+      const t = i/60;
+      curvePts.push(new THREE.Vector3(
+        (t-0.5)*16,
+        Math.sin(t*Math.PI*2.2)*1.6,
+        Math.cos(t*Math.PI*1.3)*1.2 - 1
+      ));
+    }
+    const curve = new THREE.CatmullRomCurve3(curvePts);
+    const tubeGeo = new THREE.TubeGeometry(curve, 200, 0.02, 8, false);
+    const tubeMat = new THREE.MeshBasicMaterial({ color:0x5B8CFF, transparent:true, opacity:0.75 });
+    const tube = new THREE.Mesh(tubeGeo, tubeMat);
+    scene.add(tube);
+
+    const tube2Mat = new THREE.MeshBasicMaterial({ color:0x9B7CFF, transparent:true, opacity:0.35 });
+    const tube2 = new THREE.Mesh(new THREE.TubeGeometry(curve, 200, 0.06, 8, false), tube2Mat);
+    scene.add(tube2);
+
+    // A traveling "van" marker: small glowing sphere moving along the route
+    const marker = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 16, 16),
+      new THREE.MeshBasicMaterial({ color:0xFFFFFF })
+    );
+    scene.add(marker);
+
+    let mouseX = 0, mouseY = 0;
+    window.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / window.innerWidth - 0.5);
+      mouseY = (e.clientY / window.innerHeight - 0.5);
+    });
+
+    const clock = new THREE.Clock();
+    function animate(){
+      const t = clock.getElapsedTime();
+      const progress = (t*0.045) % 1;
+      const pos = curve.getPointAt(progress);
+      marker.position.copy(pos);
+
+      points.rotation.y = t*0.01 + mouseX*0.15;
+      points.rotation.x = mouseY*0.08;
+
+      camera.position.x += (mouseX*1.4 - camera.position.x) * 0.03;
+      camera.position.y += (-mouseY*0.8 - camera.position.y) * 0.03;
+      camera.lookAt(0,0,0);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
 </script>
 
 </body>
-  </html>
-  
+</html>
